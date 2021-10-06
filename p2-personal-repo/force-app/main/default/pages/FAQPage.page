@@ -1,0 +1,139 @@
+<apex:page controller="FAQController" applyHtmlTag="false" showHeader="false" StandardStylesheets="false">
+    <style>
+
+    .fsWrapper{
+        
+        width: 85vw;
+        
+        margin: 0 auto;
+        
+    }
+        
+    .dataTable table{
+
+        font-family: 'Charm';
+        
+        border: solid 1px #E0E3E5;
+        
+        border-collapse: separate;
+        
+    }
+        
+    .dataTable  th{
+        
+        border-top: solid 1px #E0E3E5;
+        
+        border-right: solid 1px #E0E3E5;
+
+        border-left: solid 1px #E0E3E5;
+        
+        color: #fff;
+
+        font-family: 'Charm';
+        
+        font-size: 16px;
+        
+        font-weight: bolder;
+        
+        padding: 11px 2px 10px 5px;
+        
+    }
+        
+    .dataTable td {
+        
+        background: linear-gradient(90deg, #dba6ee, #15bdc5);
+        
+        border-top: solid 1px #E0E3E5;
+        
+        border-right: solid 1px #E0E3E5;
+
+        border-left: solid 1px #E0E3E5;
+        
+        color: #1e1e1f;
+        
+        font-size: 16px;
+        
+        padding: 5px 2px 5px 5px;
+        
+    }
+        
+    .actionBtnWrapper {
+        
+        float: center;
+        
+        margin-top: 0px;
+        
+        margin-left: 0px;
+
+        font-family: 'Charm';
+    }
+        
+    .actionBtnWrapper .btn{
+        
+        padding: 5px 10px;
+        
+        background: #6f54fc;
+        
+        color: #fff;
+        
+        font-size: 13px;
+        
+        font-weight: 600;        
+        
+        text-align: center;
+        
+        text-decoration: none;
+        
+        border: none;
+        
+        border-radius: 0;
+        
+        transition: 0.5s ease-in-out;
+        
+        cursor: pointer;
+        
+    }
+        
+    .actionBtnWrapper .btn:hover{
+        
+        color: #fff;
+        
+        text-decoration: none;
+        
+        background: #074894;
+        
+    }
+        
+    </style>
+    <html>    
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.mainCSS)}" />
+            <apex:slds />
+            <meta charset="UTF-8" />
+            <title>Kraken Potions</title>
+            <meta name="description" content="Kraken Potion Supply" />
+            <meta name="keywords" content="potion, potions, supply, kraken, witch, magic" />
+            <meta name="author" content="Kraken Code" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}" />
+        </head>        
+        <body class="slds-scope">
+            <c:MenuHeader title="FAQs"/>
+            <div class="container">
+                <apex:pageBlock >
+                    <apex:pageBlockSection >
+                        <apex:form styleClass="fsWrapper">
+                            <apex:outputLabel value="Question: " for="question" style="font-family:'Charm';font-weight: bold;font-size:16px;color: #ffffff;"></apex:outputLabel>
+                            <apex:inputText id="question" title="Question Search" value="{!searchInput}" />
+                            <apex:commandButton value="Search" action="{!QandA}" id="Search" style="padding: 0px 4px;background:#6f54fc;font-family:'Charm';font-size:13pt;font-weight:bold" />                                              
+                        </apex:form>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockTable value="{!updatedFAQ}" var="q" styleClass="dataTable" width="10000px">
+                        <apex:column value="{!q.Question__c}" style="font-family: 'Charm';font-size:16pt;font-weight:bold"/>
+                        <apex:column value="{!q.Answer__c}" style="font-family: 'Charm';font-size:16pt;"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+            </div>                    
+        </body>
+    </html>
+</apex:page>

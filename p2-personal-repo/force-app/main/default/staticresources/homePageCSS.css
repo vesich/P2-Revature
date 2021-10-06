@@ -1,0 +1,80 @@
+#welcomeHeader {
+    margin: 0 auto 3rem auto;
+    font-size: 2rem;
+    color: var(--blurple);
+    font-family: 'Cinzel Decorative', cursive;
+    text-align: center;
+    padding: 5px;
+}
+
+#googleMap {
+    background-color: var(--main-bg-color);
+    color: var(--blurple);
+    max-width: 600px;
+}
+
+div.slds-coordinates, #KrakenPotions, #mapLinkText {
+    text-decoration: none;
+    color: var(--blurple);
+    font-family: charm, sans-serif;
+}
+
+#mapLiContent:hover {
+    background-color: hsl(240, 2%, 7%);
+}
+
+#mapLiContent:focus {
+    background-color: hsl(240, 2%, 12%);
+}
+
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#astroCard, #weatherCard {
+    color: var(--main-bg-color);
+    border-color: var(--blurple);
+    font-weight: 700;
+    padding: 2rem;
+    margin: 3rem;
+    background: linear-gradient(to bottom right, #dba6ee, #6f54fc);
+    font-family: charm, sans-serif;
+}
+
+.slds-card__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#moonCardTitle, #weatherCardTitle {
+    font-weight: 700;
+    font-family: charm, sans-serif;
+    text-align: center;
+}
+
+.slds-scope td {
+    font-weight: 700;
+    font-family: charm, sans-serif !important;
+}
+
+@media all and (min-width: 1200px) {
+    .container {
+        flex-direction: row;
+    }
+}
+
+@media all and (max-width: 379px) {
+    #googleMap {
+        display: none;
+    }
+
+    #welcomeHeader {
+        font-size: 1.5rem;
+    }
+}

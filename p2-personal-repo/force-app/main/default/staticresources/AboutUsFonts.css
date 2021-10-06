@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
+
+  #all{
+    background-color: #1e1e1f;
+  }
+
+  #essence{
+    text-align:center;
+    color:#6f54fc;
+    font-family:'Cinzel Decorative', cursive;
+    font-size:44pt;
+    padding:20px;
+    font-weight:bold;
+  }
+  #wand{
+    text-align:center;
+    color:#6f54fc;
+    font-family:'Cinzel Decorative', cursive;
+    font-size:30pt;
+    /*margin-bottom:100px;
+    margin-top:-80px;*/
+  }
+  #p1{
+    text-align:center;
+    color:#dba6ee;
+    font-family:'Charm';
+    font-size:16pt;
+    padding-left:20%;
+    padding-right:20%;
+    padding-top:2%;
+  }
+
+  @media all and (max-width: 414px) {
+    #essence {
+        font-size: 6vw;
+    }
+    #wand{
+      font-size: 5vw;
+    }
+    #p1{
+      font-size:4vw;
+    }
+  }

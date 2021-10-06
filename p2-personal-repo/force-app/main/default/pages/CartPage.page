@@ -1,0 +1,102 @@
+<apex:page standardController="Potion_Order__c" applyHtmlTag="false" showHeader="false" extensions="CartPageExtension" lightningStylesheets="true">
+    <html>
+
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.mainCSS)}" />
+        <style type="text/css">
+            .custPopup {
+                background-color: white;
+                border-radius: 20px;
+                border-width: 1px;
+                border-style: solid;
+                z-index: 9999;
+                left: 50%;
+                padding: 20px;
+                position: absolute;
+                width: 600px;
+                margin-left: -300px;
+                top: 100px;
+                text-align: center;
+            }
+
+            .popupBackground {
+                background-color: black;
+                opacity: 0.20;
+                filter: alpha(opacity=20);
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 9998;
+            }
+        </style>
+        <apex:slds />
+        <meta charset="UTF-8" />
+        <title>Cart Page</title>
+        <meta name="description" content="Place order for potion" />
+        <meta name="keywords" content="potion, potions, supply, kraken, witch, magic" />
+        <meta name="author" content="Kraken Code" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}" />
+    </head>
+
+    <body class="slds-scope">
+        <c:MenuHeader title="Cart Page" />
+        <!-- <apex:messages/> -->
+        <apex:form style="margin:15px;font-family: 'Charm';">
+            <apex:outputPanel id="popup">
+                <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}" />
+                <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
+                    <p>Thank you for your order!</p>
+                    <br></br>
+                    Total cost:
+                    <apex:outputText value=" ${!orderTotalPrice}" />
+                    <br></br>
+                    <br></br>
+                    <apex:commandButton value="Close" action="{!closePopup}" rerender="popup" styleClass="slds-button slds-button_neutral"/>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            <div style="display:flex;justify-content:center;margin:30px;background: linear-gradient(35deg, #15bdc5, #dba6ee);padding:20px;border-radius:15px">
+                <div style="background:white;padding:20px;display:inline-block;margin:auto;border-radius:15px;">
+                <div class="slds-grid slds-gutters slds-wrap" style="width:600px;margin:auto">
+                    <!-- <apex:pageBlock html-class="slds-vf-scope"> -->
+                    <!-- <apex:pageBlockSection html-class="slds-vf-scope"> -->
+                    <div class="slds-col slds-size_1-of-4" style="text-align:right;margin:auto;padding:10px 5px">
+                        <apex:outputText value="Potion Price: " />
+                    </div>
+                    <div class="slds-col slds-size_1-of-4" style="text-align:left;margin:auto;padding:10px 5px">
+                        <apex:outputText value="${!Potion.Total_Price__c}" />
+                    </div>
+                    <div class="slds-col slds-size_1-of-4" style="text-align:right;margin:auto;padding:10px 5px">
+                        <apex:outputtext value="Potion Name: " />
+                    </div>
+                    <div class="slds-col slds-size_1-of-4" style="text-align:left;margin:auto;padding:10px 5px">
+                        <apex:outputtext value="{!Potion.Name}" />
+                    </div>
+                </div>
+                <!-- <div class="slds-col slds-size_1-of-1" > -->
+                <div class="slds-grid slds-gutters slds-wrap" style="margin:auto;width:400px">
+                    <div class="slds-col slds-size_1-of-2" style="text-align:right;margin:auto;padding:10px 5px;">
+                        <apex:outputtext value="Number of Potions: " />
+                    </div>
+                    <div class="slds-col slds-size_1-of-2" style="margin:auto;padding:10px 5px;">
+                        <apex:inputField value="{!Potion_Order__c.Number_of_Potions__c}" styleClass="slds-input slds-col" />
+                    </div>
+                </div>
+                <!-- </div> -->
+                <!-- <div class="slds-col slds-size_1-of-1" > -->
+                <div style="display:flex;justify-content:center;margin:auto;width:200px">
+                    <apex:commandButton id="ordbtn" action="{!showPopUp}" value="Place Order" styleClass="slds-button slds-button_neutral" />
+                </div>
+                </div>
+                <!-- </div> -->
+                <!-- </apex:pageBlockSection> -->
+                <!-- </apex:pageBlock> -->
+                <!-- </div> -->
+            </div>
+        </apex:form>
+    </body>
+
+    </html>
+</apex:page>

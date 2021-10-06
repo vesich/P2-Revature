@@ -1,0 +1,159 @@
+<apex:page lightningstylesheets="true" applyHtmlTag="false" standardstylesheets="false" controller="ReviewPageController" extensions="ReviewControllerExtension" showheader="false">
+        <html>
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.mainCSS)}"/>
+            <apex:stylesheet value="{!URLFOR($Resource.AboutUsFonts)}"/> 
+
+            
+            <apex:slds />
+            <meta charset="UTF-8"/>
+            <title>Kraken Potions</title>
+            <meta name="description" content="Kraken Potion Supply"/>
+            <meta name="keywords" content="potion, potions, supply, kraken, witch, magic"/>
+            <meta name="author" content="Kraken Code"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}"/>
+            <style>
+              .stars2 {
+                background-color: white;
+                height: 5px;
+                width: 5px;
+                border-radius: 50%;
+                animation-iteration-count: 1, infinite;
+                opacity: 0.25;
+              }
+            
+              .star-12 {
+                top:0%;
+                left:60%;
+                animation-duration: 8s, 2s;
+                animation-name: twinkle, twinkle22;
+                animation-delay: 0s, 8.1s;
+              }
+            
+              .star-22 {
+                top:64%;
+                left:25%;
+                animation-duration: 5s, 3s;
+                animation-name: twinkle, twinkle22;
+                animation-delay: 0s, 5.1s;
+              }
+            
+              .star-32 {
+                top:51%;
+                left:10%;
+                animation-duration: 6s, 1s;
+                animation-name: twinkle, twinkle22;
+                animation-delay: 0s, 6.1s;
+              }
+              .star-42 {
+                top:80%;
+                left:32%;
+                animation-duration: 7s, 1s;
+                animation-name: twinkle, twinkle22;
+                animation-delay: 0s, 7.1s;
+              }
+                .star-52 {
+                top:76%;
+                left:80%;
+                animation-duration: 4s, 2s;
+                animation-name: twinkle, twinkle22;
+                animation-delay: 0s, 4.1s;
+              }
+            
+              @keyframes twinkle {
+                0% {
+                    color: white;
+                    transform: scale(-100);
+                    opacity: .3;
+                    border:2px solid linear-gradient(35deg, #15bdc5, #dba6ee);
+                }
+              }
+                
+              @keyframes twinkle22 {
+                20% {
+                    color: white;
+                    transform: scale(-.5);
+                    opacity: .75;
+                    border:2px solid linear-gradient(35deg, #15bdc5, #dba6ee);
+                }
+              }
+            </style>
+        </head>
+
+        <body id="all" style="background-color:#1e1e1f" class='slds-scope'>
+            <c:MenuHeader title="About Us Page"/>
+            <!--Menu for other pages-->
+            
+                
+            <h1 id="essence">From an Essence of Potential to Our Essential Potions</h1>
+           
+            <div id="back" style="display:flex;justify-content:space-around;align-items:center;height: 110px;background: linear-gradient(35deg, #15bdc5, #dba6ee);outline:transparent; !important; position:relative;" >
+                
+                <div class="star-12 stars2" style="position:absolute;"></div>
+                <div class="star-22 stars2" style="position:absolute;"></div>
+                <div class="star-32 stars2" style="position:absolute;"></div>
+                <div class="star-42 stars2" style="position:absolute;"></div>
+                <div class="star-52 stars2" style="position:absolute;"></div>
+                <h2 id="wand">Our Wand-erful History</h2>
+              
+              </div>
+
+            <br/>
+                <br style="padding-bottom:20px;"/>
+                
+                <p id="p1">
+                    Imagine: sitting alone in a bleak, gray room, staring out the dirty window 
+                    at the droplets of rain as they seem to race each other, asking yourself 
+                    "is this all the fun life has to offer? Where's the magic?"
+                    <br/>
+                    <br style="padding-bottom:20px;"/>
+                    That's exactly what happened to our founder.  After his time working in
+                    an NYC borough as a detective, he decided he still had one mystery left to solve:
+                    where to find magic. Though Mr. Peralta never found magic in the real 
+                    world, but he did learn how to create it.
+                    <br/>
+                    <br style="padding-bottom:20px;"/>
+                    There was a lot of trial and error, but he finally cracked the biggest case of his
+                    life: potions, and their proper ingredient ratio. He wanted to share this with the world--
+                    he'd ACTUALLY created magic! 
+                    <br/>
+                    <br style="padding-bottom:20px;"/>
+                    Now, you've never met Jake. But let me tell you--when he sets his mind to something,
+                    there's no stopping him. He was laughed at, teased, and then, finally, believed. 
+                    <br/>
+                    <br style="padding-bottom:20px;"/>
+                    Welcome to Kraken Potion Brewing Company, where we can make your dreams come true (and also help you <apex:outputLink value="/{!LuDr.Id}" style="color:#6f54fc;"> dream</apex:outputLink>).
+                    
+                    <br/>
+                    <br style="padding-bottom:20px;"/>
+                    <br/>
+                    <br style="padding-bottom:20px;"/>            
+                </p>
+        
+            <apex:pageBlock >
+                                                       
+                <div class="slds-text-align_center slds-p-bottom_small slds-text-title_bold" style="color:#15bdc5;font-family:'Cinzel Decorative',cursive;font-size:16pt;font-weight:bold;">Real Reviews From Real Customers!</div>      
+                <apex:repeat value="{!reCon}" var="ih8u">
+                          <article class='slds-card' style="max-width: 400px; margin: 0 auto 5vh auto;">
+                                <div class="slds-card-header slds-text-align_center slds-p-top_x-small" style="font-family:'Cinzel Decorative', cursive;font-weight:bold;font-size:12pt;background:linear-gradient(90deg, #dba6ee, #15bdc5);color:#1e1e1f;">
+                                    {!ih8u.Review_Rating__c} stars for {!ih8u.Potion_Type__r.Name}!
+                                </div>
+                
+                                <footer class="slds-card__footer slds-text-align_center slds-p-bottom_large slds-p-top_large" style="font-family:'Charm'; font-size:16pt;font-weight:bold;color:#1e1e1f;">
+                                    "{!ih8u.Review_Message__c}" <br/>
+                                </footer>
+                                <footer class="slds-card__footer slds-text-align_center" style="font-family:'Charm';font-weight:bold;font-size:14pt;color:#1e1e1f;">
+                                    Check it out here:
+                                    <apex:outputLink value="/{!ih8u.Potion_Type__c}" style="color:#6f54fc;"> {!ih8u.Potion_Type__r.Name}</apex:outputLink>
+                                </footer>
+                          </article>                
+                </apex:repeat>
+               	
+            </apex:pageBlock>
+            
+        </body>
+            
+    </html> 
+
+</apex:page>

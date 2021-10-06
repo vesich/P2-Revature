@@ -1,0 +1,59 @@
+<apex:page showHeader="false" applyHtmlTag="false" standardStylesheets="false" controller="homeController">
+  <html lang="en">
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.mainCSS)}"/>
+            <apex:stylesheet value="{!URLFOR($Resource.homePageCSS)}"/>
+            <apex:slds />
+            <meta charset="UTF-8"/>
+            <title>Kraken Potions</title>
+            <meta name="description" content="Kraken Potion Supply"/>
+            <meta name="keywords" content="potion, potions, supply, kraken, witch, magic"/>
+            <meta name="author" content="Kraken Code"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}"/>
+        </head>
+        
+        
+        <body class="slds-scope">
+            <c:MenuHeader title="Home Page"/>
+            <h1 id="welcomeHeader">Welcome to Kraken Potion Brewing Company!</h1>
+            <div class="container">
+                <c:locationMap />
+                <div class="cardContainer">
+                    <article id="astroCard" class="slds-card">
+                        <div class="slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="slds-media__body">
+                                    <h2 id="moonCardTitle" class="slds-card__header-title">
+                                        Current Moon Phase
+                                    </h2>
+                                </div>
+                            </header>
+                            <div class="slds-card__body slds-card__body_inner">
+                                {!CalloutResponseContentsAstronomy}
+                            </div>
+                        </div>
+                    </article>
+                    <article id="weatherCard" class="slds-card">
+                        <div class="slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="slds-media__body">
+                                    <h2 id="weatherCardTitle" class="slds-card__header-title">
+                                        Current Weather
+                                    </h2>
+                                </div>
+                            </header>
+                            <div class="slds-card__body slds-card__body_inner">
+                                <apex:pageBlock >
+                                    <apex:pageBlockTable value="{!CalloutResponseContentsWeather}" var="attr">
+                                        <apex:column value="{!attr}"></apex:column>
+                                    </apex:pageBlockTable>
+                                </apex:pageBlock>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>      
+        </body>
+    </html>
+</apex:page>
