@@ -23,7 +23,9 @@
                         <lightning:recordForm
                                           objectApiName="Account"
                                           fields="{!v.newAccount}"
+                                          onsuccess="{!c.doInit}"
                                           columns="1" />
+                        				  
                     </div>
                 </div>
             </section>
@@ -48,7 +50,8 @@
                                           recordId="{!v.recordId}"
                                           objectApiName="Account"
                                           fields="{!v.newAccount}"
-                                          columns="1" 
+                                          columns="1"
+                                          onsuccess="{!c.doInit}"
                                           mode="view" />
                     </div>
                 </div>

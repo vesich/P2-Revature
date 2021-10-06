@@ -27,8 +27,17 @@
             cmp.set("v.a2", ing);
         } else if (event.getParam("type") == "E") {
             cmp.set("v.ingSet", ing);
+            //cmp.set("v.a2", ing);
             cmp.set("v.ifIngPage", "false");
         }
+    },
+    
+    handleIngEvent : function(cmp, event){
+        
+        //if(event.getParam("type") == "P"){
+        console.log("goog");
+            cmp.set("v.ifIngPage", "true");
+        //}
     },
     
     createPotion : function(component, event) {
